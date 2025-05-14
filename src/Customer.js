@@ -50,55 +50,71 @@ function Customer() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Editar cliente</h2>
+    <div style={{ padding: '20px 10px',   maxWidth: '500px', margin: '0 auto' }}>
+      <h2 style={{ textAlign: 'center' }}>Editar cliente</h2>
 
-      <label>Tipo de documento:</label><br />
-      <select value={selectedIdType} onChange={(e) => setSelectedIdType(e.target.value)}>
-        <option value="">Seleccione un tipo de documento</option>
-        {idTypes.map(t => (
-          <option key={t.Id} value={t.Id}>{t.Description}</option>
-        ))}
-      </select>
+      <div style={{ marginBottom: '15px' }}>
+        <label>Tipo de documento:</label><br />
+        <select
+          value={selectedIdType}
+          onChange={(e) => setSelectedIdType(e.target.value)}
+          style={{ width: '100%' }}
+        >
+          <option value="">Seleccione un tipo de documento</option>
+          {idTypes.map(t => (
+            <option key={t.Id} value={t.Id}>{t.Description}</option>
+          ))}
+        </select>
+      </div>
 
-      <br /><br />
-      <label>Número de documento:</label><br />
-      <input
-        type="text"
-        placeholder="Número de documento"
-        value={documentNumber}
-        onChange={(e) => setDocumentNumber(e.target.value)}
-      />
-      <br /><br />
+      <div style={{ marginBottom: '15px' }}>
+        <label>Número de documento:</label><br />
+        <input
+          type="text"
+          placeholder="Número de documento"
+          value={documentNumber}
+          onChange={(e) => setDocumentNumber(e.target.value)}
+          style={{ width: '100%' }}
+        />
+      </div>
 
-      <button onClick={handleSearch}>Buscar</button>
+      <button onClick={handleSearch} style={{ marginBottom: '20px' }}>Buscar</button>
 
       {customer && (
         <div style={{ marginTop: '20px' }}>
-          <h3>Editar datos</h3>
+          <h3 style={{ marginBottom: '10px' }}>Editar datos</h3>
 
-          <label>Nombre:</label><br />
-          <input
-            type="text"
-            value={customer.FirstName}
-            onChange={(e) => setCustomer({ ...customer, FirstName: e.target.value })}
-          /><br /><br />
+          <div style={{ marginBottom: '10px' }}>
+            <label>Nombre:</label><br />
+            <input
+              type="text"
+              value={customer.FirstName}
+              onChange={(e) => setCustomer({ ...customer, FirstName: e.target.value })}
+              style={{ width: '100%' }}
+            />
+          </div>
 
-          <label>Apellido:</label><br />
-          <input
-            type="text"
-            value={customer.LastName}
-            onChange={(e) => setCustomer({ ...customer, LastName: e.target.value })}
-          /><br /><br />
+          <div style={{ marginBottom: '10px' }}>
+            <label>Apellido:</label><br />
+            <input
+              type="text"
+              value={customer.LastName}
+              onChange={(e) => setCustomer({ ...customer, LastName: e.target.value })}
+              style={{ width: '100%' }}
+            />
+          </div>
 
-          <label>Correo:</label><br />
-          <input
-            type="email"
-            value={customer.EMail}
-            onChange={(e) => setCustomer({ ...customer, EMail: e.target.value })}
-          /><br /><br />
+          <div style={{ marginBottom: '10px' }}>
+            <label>Correo:</label><br />
+            <input
+              type="email"
+              value={customer.EMail}
+              onChange={(e) => setCustomer({ ...customer, EMail: e.target.value })}
+              style={{ width: '100%' }}
+            />
+          </div>
 
-          <button onClick={handleUpdate}>Guardar cambios</button>
+          <button onClick={handleUpdate} style={{ width: '100%' }}>Guardar cambios</button>
         </div>
       )}
     </div>
