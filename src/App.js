@@ -47,18 +47,21 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <button onClick={() => setShowEditor(false)} style={{ margin: '20px' }}>Crear</button>
-      <button onClick={() => setShowEditor(true)} style={{ margin: '20px' }}>Editar cliente</button>
+    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '30px' }}>
+        <button onClick={() => setShowEditor(false)}>Crear</button>
+        <button onClick={() => setShowEditor(true)}>Editar cliente</button>
+      </div>
 
       {!showEditor ? (
         <>
-          <h2>Formulario de documento</h2>
+          <h2 style={{ textAlign: 'center' }}>Formulario de documento</h2>
           <form onSubmit={handleSubmit}>
             <label>Tipo de documento:</label> <br />
             <select
               value={selectedIdType}
               onChange={(e) => setSelectedIdType(e.target.value)}
+              style={{ width: '100%' }}
             >
               <option value="">Seleccione un tipo de documento</option>
               {idTypes.map((type) => (
@@ -72,6 +75,7 @@ function App() {
               type="text"
               value={documentNumber}
               onChange={(e) => setDocumentNumber(e.target.value)}
+              style={{ width: '100%' }}
             />
             <br /><br />
 
@@ -80,6 +84,7 @@ function App() {
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              style={{ width: '100%' }}
             />
             <br /><br />
 
@@ -88,10 +93,11 @@ function App() {
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              style={{ width: '100%' }}
             />
             <br /><br />
 
-            <button type="submit">Guardar</button>
+            <button type="submit" style={{ width: '100%' }}>Guardar</button>
           </form>
         </>
       ) : (
